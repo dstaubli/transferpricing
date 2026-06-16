@@ -1,1 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer Pricing – Swiss Federal Tax Administration (2024)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --mid: #4a4a4a; --muted: #7a7a7a;
+    --rule: #d8d4cd; --bg: #fafaf8; --paper: #ffffff;
+    --accent: #c8a84b; --accent-lt: #f5edda;
+    --sidebar-w: 260px; --content-w: 720px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.75; display: flex; }
+
+  /* SIDEBAR */
+  nav { position: fixed; top: 0; left: 0; width: var(--sidebar-w); height: 100vh; background: var(--paper); border-right: 1px solid var(--rule); overflow-y: auto; padding: 2rem 0 3rem; z-index: 100; }
+  .nav-brand { padding: 0 1.5rem 1.5rem; border-bottom: 1px solid var(--rule); margin-bottom: 1.5rem; }
+  .nav-brand .badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-lt); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 2px; margin-bottom: 0.5rem; }
+  .nav-brand h2 { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
+  nav ul { list-style: none; }
+  nav > ul { padding: 0 0.75rem; }
+  nav a { display: block; text-decoration: none; color: var(--mid); font-size: 0.8rem; padding: 0.35rem 0.75rem; border-radius: 4px; transition: background 0.15s, color 0.15s; }
+  nav a:hover { background: var(--accent-lt); color: var(--ink); }
+  nav a.active { background: var(--accent-lt); color: var(--ink); font-weight: 500; }
+  .nav-section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 1rem 1.5rem 0.25rem; }
+  .nav-sub { padding-left: 1rem !important; }
+  .nav-sub a { font-size: 0.75rem; color: var(--muted); }
+
+  /* MAIN */
+  main { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); min-height: 100vh; }
+  .hero { background: var(--ink); color: white; padding: 4rem 4rem 3.5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(135deg, transparent 40%, rgba(200,168,75,0.12) 100%); pointer-events: none; }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; max-width: 600px; }
+  .hero-sub { color: rgba(255,255,255,0.65); max-width: 520px; margin-bottom: 0; font-size: 0.95rem; }
+  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .hero-meta-item { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+  .hero-meta-item strong { display: block; color: rgba(255,255,255,0.9); font-size: 0.85rem; margin-bottom: 2px; }
+
+  .content { max-width: calc(var(--content-w) + 8rem); padding: 0 4rem; }
+  section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); }
+  section:last-child { border-bottom: none; }
+  .section-number { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  h2 { font-family: 'Lora', serif; font-size: 1.65rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; line-height: 1.25; }
+  h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 2.25rem 0 0.75rem; }
+  h4 { font-size: 0.9rem; font-weight: 600; color: var(--mid); margin: 1.75rem 0 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  p { margin-bottom: 1rem; color: var(--mid); max-width: var(--content-w); }
+  p:last-child { margin-bottom: 0; }
+  sup { font-size: 0.7em; color: var(--accent); }
+
+  .callout { background: var(--accent-lt); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; border-radius: 0 6px 6px 0; margin: 1.75rem 0; max-width: var(--content-w); }
+  .callout-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .callout p { color: var(--ink); font-size: 0.9rem; }
+
+  .info-box { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.75rem 0; max-width: var(--content-w); }
+  .info-box p { font-size: 0.875rem; }
+
+  .footnotes { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); max-width: var(--content-w); }
+  .footnotes p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.5; }
+
+  .abbrev-table { width: 100%; max-width: var(--content-w); border-collapse: collapse; margin: 1rem 0; }
+  .abbrev-table td { padding: 0.5rem 0.75rem; font-size: 0.85rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .abbrev-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; width: 140px; }
+  .abbrev-table td:last-child { color: var(--mid); }
+  .abbrev-table tr:last-child td { border-bottom: none; }
+
+  .disclaimer { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 2rem; margin: 1rem 0; max-width: var(--content-w); }
+  .disclaimer h3 { margin-top: 1.5rem; font-size: 0.95rem; text-transform: none; letter-spacing: 0; color: var(--ink); }
+  .disclaimer h3:first-child { margin-top: 0; }
+  .disclaimer p { font-size: 0.875rem; }
+
+  @media (max-width: 900px) {
+    nav { display: none; }
+    main { margin-left: 0; width: 100%; }
+    .hero { padding: 2.5rem 1.5rem; }
+    .content { padding: 0 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav id="sidebar">
+  <div class="nav-brand">
+    <div class="badge">FTA · 2024</div>
+    <h2>Transfer Pricing</h2>
+  </div>
+  <ul>
+    <li><a href="#intro">1 · Introduction</a></li>
+    <li>
+      <div class="nav-section-label">2 · Arm's Length Principle</div>
+      <ul class="nav-sub">
+        <li><a href="#s2-1">2.1 General Remarks</a></li>
+        <li><a href="#s2-2">2.2 Legal Basis</a></li>
+        <li><a href="#s2-3">2.3 Implications</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="nav-section-label">3 · Comparability Analysis</div>
+      <ul class="nav-sub">
+        <li><a href="#s3-1">3.1 General Remarks</a></li>
+        <li><a href="#s3-2">3.2 Steps 1–9</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="nav-section-label">4 · Transfer Pricing Methods</div>
+      <ul class="nav-sub">
+        <li><a href="#s4-1">4.1 Traditional Methods</a></li>
+        <li><a href="#s4-2">4.2 Transactional Profit Methods</a></li>
+        <li><a href="#s4-3">4.3 Other Methods</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="nav-section-label">5 · Special Areas</div>
+      <ul class="nav-sub">
+        <li><a href="#s5-1">5.1 General Remarks</a></li>
+        <li><a href="#s5-2">5.2 Intangible Assets</a></li>
+        <li><a href="#s5-3">5.3 Intragroup Services</a></li>
+        <li><a href="#s5-4">5.4 Financial Transactions</a></li>
+      </ul>
+    </li>
+    <li><a href="#s6">6 · Documentation</a></li>
+    <li>
+      <div class="nav-section-label">7 · Procedural Aspects</div>
+      <ul class="nav-sub">
+        <li><a href="#s7-1">7.1 Competent Authorities</a></li>
+        <li><a href="#s7-2">7.2 Rulings &amp; APAs</a></li>
+        <li><a href="#s7-3">7.3 Primary &amp; Corresponding Adjustments</a></li>
+        <li><a href="#s7-4">7.4 Secondary Adjustment</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="nav-section-label">Reference</div>
+      <ul class="nav-sub">
+        <li><a href="#abbreviations">Abbreviations</a></li>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hero-eyebrow">Swiss Federal Tax Administration · Tax Documentation</div>
+    <h1>Transfer Pricing</h1>
+    <p class="hero-sub">Legislation as of 1 January 2024. Written in collaboration with the Main Division for Federal Direct Tax, Anticipatory Tax and Stamp Duty of the Swiss Federal Tax Administration (FTA).</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Legislation as of</strong>1 January 2024</div>
+      <div class="hero-meta-item"><strong>Publisher</strong>Swiss Tax Conference (SSK / CSI)</div>
+      <div class="hero-meta-item"><strong>Editor</strong>Federal Tax Administration (FTA), Berne</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 1 -->
+    <section id="intro">
+      <div class="section-number">Section 1</div>
+      <h2>Introduction</h2>
+      <p>Transfer pricing refers to the prices at which and other conditions under which an enterprise transfers physical goods, intangible assets or services, among other things, to an associated enterprise<sup>1, 2</sup> (i.e. in essence an enterprise from the same group). Given the large number of multinational groups, or multinational enterprise (MNE) groups, operating in the global economy today, this is a very important issue in international tax law.</p>
+      <p>Switzerland, like many other countries around the world, applies the principle of separate entity taxation (separation principle). This approach sees each company with legal personality that is part of a multinational group being treated as a taxpayer in its own right and taxed individually on the profits it makes.</p>
+      <p>Under the separation principle, transfer pricing applied between associated enterprises must comply with the arm's length principle. This principle requires transactions between entities of a multinational group to meet the same conditions as those which would be agreed between independent enterprises. Otherwise, the profits which would have accrued to one of the entities if the arm's length principle had been complied with may be adjusted and included in the profits of that entity and taxed accordingly.<sup>3</sup></p>
+      <p>The arm's length principle is based on the notional idea that the taxable income of a multinational group should be allocated among its various constituent entities.</p>
+      <div class="callout">
+        <div class="callout-label">Example</div>
+        <p>A company based in Country A pays royalties to a parent company that owns a brand and is based in Country B. Given that royalties represent a deductible expense for the company in Country A and taxable income for the parent company in Country B, their determination has a direct impact on the profits made by the group in Country A, or in Country B. Under the arm's length principle, these royalties must be set at a price that would be agreed between two independent enterprises, in order to ensure appropriate allocation of the group's profits between Country A and Country B.</p>
+      </div>
+      <p>Non-compliance with this principle results in tax implications, which are set out below in section 2.3.</p>
+      <p>The separation principle and the arm's length principle are opposed to the unitary approach and global formulary apportionment. In the unitary approach, a multinational group is an integrated economic unit whose consolidated profit would be allocated among this unit's various constituent entities on the basis of a predetermined formula based on some combination of factors, including costs, assets, payroll and sales (global apportionment). This approach has not yet gained currency between jurisdictions.<sup>4</sup></p>
+      <p>This publication will focus exclusively on transfer pricing in an international context, namely on prices applicable to transactions between companies from the same group that are based in different countries.</p>
+      <div class="footnotes">
+        <p><sup>1</sup> OECD Transfer Pricing Guidelines for Multinational Enterprises and Tax Administrations 2022, abbreviated below as "OECD Guidelines", § 11.</p>
+        <p><sup>2</sup> The notion of "associated enterprises" is defined in art. 9 para 1 of the Model Tax Convention on Income and on Capital, published by the OECD (OECD Model). Two enterprises are deemed to be associated when one enterprise participates directly or indirectly in the management, control or capital of the other enterprise (parent company and direct or indirect subsidiary), or when the same persons participate directly or indirectly in the management, control or capital of the two enterprises (sister companies).</p>
+        <p><sup>3</sup> OECD Guidelines, § 1.6 ff.</p>
+        <p><sup>4</sup> OECD Guidelines, § 1.16 ff.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="s2-1">
+      <div class="section-number">Section 2</div>
+      <h2>Arm's Length Principle</h2>
+
+      <h3>2.1 General Remarks</h3>
+      <p>The arm's length principle is used to determine transfer prices between associated enterprises for tax purposes. This principle requires transactions between associated enterprises, regardless of their type, to meet the same conditions as those which would be agreed between non-associated third parties under comparable circumstances.</p>
+
+      <h3 id="s2-2">2.2 Legal Basis</h3>
+
+      <h4>2.2.1 Underpinnings in International Tax Law</h4>
+      <p>In international tax law, the normative basis for the arm's length principle can be found in the provisions of the double taxation agreements (DTAs) signed between the different states, and specifically in the provisions based on art. 9 of the OECD Model.</p>
+      <p>The arm's length principle is explained in the OECD Guidelines. This OECD document, whose most recent version was published in 2022, defines the methods for implementing the arm's length principle in order to assess the establishment of transfer prices between associated enterprises. It is internationally recognised by OECD member countries. Although its contents are not legally binding, Swiss tax authorities and courts increasingly refer to it and apply it as a way of interpreting the arm's length principle under Swiss law.<sup>5</sup></p>
+
+      <h4>2.2.2 Underpinnings in Swiss Tax Law</h4>
+      <p>Swiss tax law does not include specific legislation on transfer pricing. The arm's length principle is implemented in Switzerland on the basis of art. 58 para. 1 of the Federal Act of 14 December 1990 on Direct Federal Taxation (DFTA) and art. 24 para. 1 of the Federal Act of 14 December 1990 on the Harmonisation of Direct Taxation at Cantonal and Communal Levels (DTHA) in the case of profit tax, and art. 4 para. 1 let. b of the Federal Act of 13 October 1965 on Withholding Tax (WTA) in the case of withholding tax. This article will only address these two taxes.</p>
+      <p>Furthermore, there are various administrative guidelines referring to the establishment of transfer prices between associated enterprises. For example, circular No. 4 of the Federal Tax Administration (FTA) of 19 March 2004, entitled "Taxation of service companies", reminds the cantonal tax authorities of the need to take into account the OECD Guidelines when taxing multinational enterprises.</p>
+      <p>There are also administrative guidelines establishing safe harbour transfer prices for financial transactions, namely the FTA circular letter No. 203 of 7 February 2023, entitled "2023 interest rates recognised for tax purposes on advances or loans in Swiss francs" and FTA circular No. 6 of 6 June 1997, entitled "Hidden equity of capital companies and cooperatives (art. 65 and art. 75 of the DFTA)". Non-compliance with these guidelines creates a rebuttable presumption of non-compliance with the arm's length principle. However, taxpayers have the option to demonstrate that the transaction complies with the arm's length principle.</p>
+
+      <h3 id="s2-3">2.3 Principal Implications in Swiss Tax Law of Non-Compliance with the Arm's Length Principle</h3>
+
+      <h4>2.3.1 Profit Tax</h4>
+      <p>If a Swiss company does not comply with the arm's length principle when paying excessive remuneration to its shareholders (e.g. parent company) or to close associates (e.g. sister company)<sup>6</sup> abroad (or by receiving inadequate remuneration from them), the inappropriate portion of this remuneration is considered to be hidden profit distribution and is reintegrated into the taxable income of the Swiss company pursuant to art. 58 para. 1 of the DFTA and art. 24 para. 1 of the DTHA.</p>
+      <p>In cases where excessive remuneration is paid by a Swiss parent company to a foreign subsidiary (or inadequate remuneration is received from it), this is a hidden capital contribution, equivalent to depreciation for the Swiss parent company unjustified by commercial use, and can be reintegrated into the taxable profit of the Swiss parent company on the same basis.</p>
+
+      <h4>2.3.2 Withholding Tax</h4>
+      <p>In terms of withholding tax, the excessive portion of remuneration paid to its shareholders (e.g. parent company) or to close associates (e.g. sister company) abroad (or the inadequate portion of the remuneration received from it) is considered to be a significant monetary benefit subject to withholding tax under art. 4 para. 1 let. b of the WTA.</p>
+
+      <div class="footnotes">
+        <p><sup>5</sup> For example, Federal Supreme Court decision (FSCD) 140 II 88, recital 4.2; FSCD 143 II 185, recital 4.1.</p>
+        <p><sup>6</sup> Swiss domestic law does not recognise the notion of associated enterprises that is found in DTAs. We therefore refer to the notions of shareholders and close associates, used for both profit tax and withholding tax. According to the Federal Supreme Court (FSC), a close associate is "a natural or legal person having a close personal relationship, e.g. family ties or ties of friendship, with the shareholder, the holder of interests, or the company's bodies" (in particular, FSCD 2C_177/2016 of 30 January 2017, recital 4.3).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="s3-1">
+      <div class="section-number">Section 3</div>
+      <h2>Comparability Analysis</h2>
+
+      <h3>3.1 General Remarks</h3>
+      <p>The comparability analysis is central to the application of the arm's length principle. It involves reviewing on the one hand the controlled transaction (i.e. the transaction between associated enterprises for which an arm's length price is to be determined), and on the other hand the potentially comparable uncontrolled transactions (i.e. transactions between independent enterprises).<sup>7</sup> In recent decisions, Swiss courts have referred to the comparability analysis in the context of the application of the arm's length principle and more particularly in the context of an analysis of hidden profit distributions or significant monetary benefits.<sup>8</sup></p>
+      <p>The OECD provides a description of the typical process that can be followed when performing a comparability analysis. This is made up of nine steps set out below. This process is considered an accepted good practice, but it is not compulsory, so other search processes may be acceptable as long as their results are guaranteed to be reliable.<sup>9</sup></p>
+      <p>In the context of the comparability analysis, it is necessary to accurately delimit the controlled transaction by identifying the following characteristics (comparability factors):<sup>10</sup></p>
+      <div class="info-box">
+        <p>• the contractual terms of the controlled transaction;</p>
+        <p>• the functions performed by each of the parties to the transaction, taking into account assets used and risks assumed (functional analysis);</p>
+        <p>• the characteristics of property transferred or services provided;</p>
+        <p>• the economic circumstances of the parties and of the market in which the parties operate;</p>
+        <p>• the business strategies pursued by the parties.</p>
+      </div>
+      <p>These characteristics are relevant both for accurately defining the controlled transaction (in particular in the second and third steps of the typical process, detailed below in sections 3.2.2 and 3.2.3), and for making comparisons with uncontrolled transactions (sections 3.2.4 and 3.2.5).<sup>11</sup></p>
+
+      <h3 id="s3-2">3.2 Steps in the Comparability Analysis</h3>
+
+      <h4>3.2.1 Step 1: Determination of Years to be Included</h4>
+      <p>The comparability analysis should ideally (i.e. if appropriate data is available) be based on data for the year under review and previous years. Comparative analyses based on data too far removed in time from the year under review will generally not be accepted by the Swiss tax authorities.</p>
+
+      <h4>3.2.2 Step 2: Broad-Based Analysis of the Taxpayer's Circumstances</h4>
+      <p>The broad-based analysis is a fundamental step in the comparability analysis. It consists of reviewing the taxpayer's economic circumstances, as well as those of the market in which it operates, including in particular the geographic location, the extent of competition, the levels of supply and demand, consumer purchasing power, regulatory factors, costs of production, transport costs, the market level (retail or wholesale), and so forth.<sup>12</sup></p>
+      <p>If the controlled transaction and potentially comparable transactions take place in environments that have differences that have a material effect on price, the corresponding data cannot be used as is. Appropriate adjustments should be made or the relevant transactions should be excluded from the comparability analysis.<sup>13</sup></p>
+
+      <h4>3.2.3 Step 3: Review of the Controlled Transaction and Choice of the Tested Party</h4>
+      <p>A review of the controlled transaction is essential to choose the tested party (if any), select the most appropriate transfer pricing method and identify comparables. As a general rule, the arm's length principle should be applied on a transaction-by-transaction basis. This review is based in particular on a functional analysis, i.e. an analysis of the functions performed, assets used and risks assumed by the various parties to the controlled transaction.<sup>14</sup> The functional analysis is based on the activities and capabilities that are actually deployed by the parties. Generally speaking, the greater the functions performed, the assets used and the risks assumed by a party, the higher their remuneration should be.<sup>15</sup></p>
+      <p>When the selected transfer pricing method is a resale price, cost plus or transactional net margin method (set out below in sections 4.1.2 and 4.2.1), the tested party should be chosen from among the parties involved in the controlled transaction. The tested party is the party to which the appropriate financial indicator (e.g. the cost margin under the cost plus method) will be applied. In principle, the tested party will be the one for which the most reliable comparables can be found, i.e. most often the one that has the least complex functional analysis.<sup>16</sup></p>
+      <p>Let us imagine that Company A manufactures a product that it sells to Company B, an associated enterprise, using valuable, unique intangible assets (e.g. patents) that belong to the latter and following technical specifications set by the latter. The tested party for this transaction would likely be Company A, which is involved in this transaction only as a custom manufacturer,<sup>17</sup> and which therefore has a less complex functional profile than Company B.</p>
+      <p>By contrast, if Company A manufactures another product for which it uses valuable, unique intangible assets which it owns and which it sells to Company B, which acts as just a distributor, then the tested party would likely be Company B.<sup>18</sup></p>
+
+      <h4>3.2.4 Step 4: Internal Comparables</h4>
+      <p>Comparable uncontrolled transactions are transactions between two independent enterprises that are comparable to the controlled transaction. These can, first and foremost, be internal comparable transactions, i.e. comparable transactions between one party to the controlled transaction and an independent party, if one exists.<sup>19</sup> This is the case if, for example, a taxpayer manufactures a product which it sells to an associated enterprise and also to an independent enterprise. Where they exist, internal comparables must satisfy the various comparability factors set out in section 3.1, in the same way as external comparables.<sup>20</sup></p>
+
+      <h4>3.2.5 Step 5: External Comparables</h4>
+      <p>Comparable uncontrolled transactions may also be external comparables, i.e. comparable transactions between two independent enterprises, neither of which is a party to the controlled transaction.<sup>21</sup> There are various information sources for accessing potential external comparables, including commercial databases such as Bloomberg, Loan Connector and TP Catalyst.</p>
+      <p>Tax administrations may have non-public information about transactions carried out by other taxpayers which could provide (secret) external comparables. The OECD advises against using such data when applying a transfer pricing method against a taxpayer.<sup>22</sup> In practice, the FTA does not use such information, as Swiss tax secrecy legislation would mean that it could not be disclosed to support the FTA's position in any litigation proceedings.</p>
+
+      <h4>3.2.6 Step 6: Selection of the Most Appropriate Transfer Pricing Method</h4>
+      <p>The most appropriate transfer pricing method in any particular case is selected in accordance with the principles set out in section 4.</p>
+
+      <h4>3.2.7 Step 7: Identification of Potential Comparables</h4>
+      <p>Selecting or rejecting comparable transactions involves first determining the key characteristics that must be met for any uncontrolled transaction to be regarded as potentially comparable, based on the comparability factors identified above.<sup>23</sup></p>
+      <p>The OECD presents two approaches that can be used to identify potential comparables<sup>24</sup> and that can in practice be combined as part of the same comparability analysis:</p>
+      <div class="info-box">
+        <p>• the "additive" approach, where a list of independent enterprises conducting transactions that are potentially comparable to the relevant transaction is spontaneously drawn up; this approach requires a good knowledge of the market and access to the requisite information about these third-party enterprises;</p>
+        <p style="margin-top:0.75rem;">• the "deductive" approach, drawing on a wide set of companies that operate in the same sector of activity and perform similar broad functions, generally starting with a database search.</p>
+      </div>
+
+      <h4>3.2.8 Step 8: Comparability Adjustments</h4>
+      <p>When there are significant differences between the controlled transaction and a potentially comparable transaction in relation to comparability factors, it is sometimes possible, rather than rejecting this comparable altogether, to make comparability adjustments in order to eliminate the effect of any such differences.<sup>25</sup></p>
+      <p>By contrast, if the adjustments required are too numerous or substantial, this may indicate that the third-party transactions are in fact not sufficiently comparable.<sup>26</sup></p>
+      <div class="callout">
+        <div class="callout-label">Example</div>
+        <p>For example, in the context of the application of the transactional net margin method (see section 4.2.1), it may be necessary to make an adjustment to take account of differences in working capital levels between a tested party and a comparable.<sup>27</sup></p>
+      </div>
+
+      <h4>3.2.9 Step 9: Determination of the Arm's Length Remuneration</h4>
+      <p>The application of a transfer pricing method generally involves selecting a number of comparables whose remuneration makes it possible to establish a range of figures all having the same reliability (arm's length range).<sup>28</sup> When this range includes a sizeable number of comparables having comparability defects, there may be a need to use different statistical tools in order to enhance the reliability of the analysis.<sup>29</sup></p>
+      <p>In practice, the interquartile range is the most frequently used method. This refers to the difference between the first quartile (value below which 25 % of the data falls when arranged in ascending order) and the third quartile (value below which 75 % of the data falls when arranged in ascending order). As a general rule, and provided that the analysis has no comparability defects, all values falling within the interquartile range are in accordance with the arm's length principle.</p>
+
+      <div class="footnotes">
+        <p><sup>7</sup> OECD Guidelines, § 1.33 and § 3.1.</p>
+        <p><sup>8</sup> Federal Administrative Court decision A-4976/2022 of 4 September 2023, recital 2.6.4.6; decision of the Cantonal Supreme Court of Geneva ATA/222/2019 of 5 March 2019.</p>
+        <p><sup>9</sup> OECD Guidelines, § 3.4.</p>
+        <p><sup>10</sup> OECD Guidelines, § 1.36.</p>
+        <p><sup>11</sup> OECD Guidelines, § 1.33 and § 1.39.</p>
+        <p><sup>12</sup> OECD Guidelines, § 1.130 ff. and § 3.7.</p>
+        <p><sup>13</sup> OECD Guidelines, § 1.130.</p>
+        <p><sup>14</sup> OECD Guidelines, § 3.4 and § 3.20.</p>
+        <p><sup>15</sup> OECD Guidelines, § 1.51.</p>
+        <p><sup>16</sup> OECD Guidelines, § 3.18.</p>
+        <p><sup>17</sup> Contract manufacturers undertake on-demand manufacturing for another entity and do not own the raw materials or manufactured products.</p>
+        <p><sup>18</sup> OECD Guidelines, § 3.19.</p>
+        <p><sup>19</sup> OECD Guidelines, § 3.24.</p>
+        <p><sup>20</sup> OECD Guidelines, § 3.28.</p>
+        <p><sup>21</sup> OECD Guidelines, § 3.24.</p>
+        <p><sup>22</sup> OECD Guidelines, § 3.36.</p>
+        <p><sup>23</sup> OECD Guidelines, § 3.4.</p>
+        <p><sup>24</sup> OECD Guidelines, § 3.40 ff.</p>
+        <p><sup>25</sup> OECD Guidelines, § 3.47 ff.</p>
+        <p><sup>26</sup> OECD Guidelines, § 3.51.</p>
+        <p><sup>27</sup> OECD Guidelines, Annex to Chapter III.</p>
+        <p><sup>28</sup> OECD Guidelines, § 3.55.</p>
+        <p><sup>29</sup> OECD Guidelines, § 3.57.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="s4-1">
+      <div class="section-number">Section 4</div>
+      <h2>Transfer Pricing Methods</h2>
+
+      <h3>4.1 Traditional Transaction Methods</h3>
+
+      <h4>4.1.1 Comparable Uncontrolled Price Method</h4>
+      <p>The comparable uncontrolled price (CUP) method compares the price charged for property or services transferred in a controlled transaction with the price charged for property or services transferred in a comparable transaction between independent enterprises in comparable circumstances.<sup>30</sup> This method may be used where none of the differences between the transactions being compared could materially affect the price, or if comparability adjustments can be made to eliminate the effects of such differences.<sup>31</sup></p>
+      <p>Given that the comparable uncontrolled price method presupposes a high degree of similarity between the controlled transaction and the comparable uncontrolled transaction, it is particularly appropriate when there are internal comparables (e.g. when a taxpayer manufactures a product that it sells to an associated enterprise and also to an independent enterprise), for commodities at quoted prices (e.g. oil, metals, agricultural products) or for interest rates.</p>
+      <p>Even when the controlled transaction and the comparable transaction relate to the same property or service, differences between the terms of each transaction (e.g. as regards transport or volume) may have an influence on prices, thus requiring comparability adjustments to be made, as set out in section 3.2.8.<sup>32</sup> If comparability adjustments do not improve the reliability of the results, a different transfer pricing method should be used instead.</p>
+
+      <h4>4.1.2 Resale Price Method</h4>
+      <p>The resale price method (RPM) begins with the price at which a product that the taxpayer has purchased from an associated enterprise is resold to an independent enterprise. This resale price is then reduced by an appropriate gross margin, representing the amount out of which the reseller would seek to cover its selling and other operating expenses and make an appropriate profit in the light of the functional analysis. The arm's length price corresponds to what is left after subtracting the gross margin and after adjusting for other costs associated with the purchase of the product (e.g. customs duties).<sup>33</sup></p>
+      <p>This method is primarily used to determine the transfer pricing applying to distribution companies, which purchase a product from an associated enterprise for resale to third parties. The appropriate gross margin may be determined by reference to internal or external comparables.<sup>34</sup> The required degree of product similarity is less than under the comparable uncontrolled price method, as product differences are less likely to have as material an effect on profit margins as they do on price. In the context of the resale price method, the functional analysis is, among the various comparability factors mentioned in section 3.1, more crucial than the characteristics of the transferred property.<sup>35</sup></p>
+
+      <h4>4.1.3 Cost Plus Method</h4>
+      <p>The cost plus method (CPM) involves determining the costs incurred by the taxpayer in a controlled transaction and adding an appropriate cost plus mark-up to this cost, in light of the functions performed and the market conditions.<sup>36</sup></p>
+      <p>This method can be used to determine the transfer pricing applying to production companies with certain functional profiles (in particular, such companies producing semi-finished goods, e.g. metal parts intended to undergo further processing) or services, where property is transferred or services are provided to an associated enterprise.<sup>37</sup> In terms of determining the appropriate margin, the remarks under the resale price method also apply to the cost plus method.</p>
+
+      <h3 id="s4-2">4.2 Transactional Profit Methods</h3>
+
+      <h4>4.2.1 Transactional Net Margin Method</h4>
+      <p>Unlike the traditional methods that involve determining the price of a transaction between associated enterprises, transactional profit methods examine the profits that arise from such a transaction.<sup>38</sup></p>
+      <p>The first transactional profit method described by the OECD Guidelines is the transactional net margin method (TNMM). This method involves determining the net profit that a taxpayer realises from a controlled transaction, by reference to a net profit indicator that the same taxpayer (internal comparables) or a third party (external comparables) earns in comparable uncontrolled transactions.<sup>39</sup></p>
+      <p>Net profit indicators include return on assets, operating income to sales, and other measures of net profit.<sup>40</sup></p>
+      <p>Comparables should ideally perform similar functions and operate in the same economic sector and market as the taxpayer in the context of the controlled transaction. However, the degree of similarity required in the comparability analysis is lower than for traditional transaction methods.</p>
+      <p>The transactional net margin method is very frequently used in practice, due to the wide range of public data available regarding indicators of net profit earned by independent enterprises.</p>
+
+      <h4>4.2.2 Profit Split Method</h4>
+      <p>The second transactional profit method described by the OECD Guidelines is the profit split method (PSM). This method involves identifying the profits (and also losses) made under a controlled transaction and splitting them between the various associated enterprises involved in the transaction on the basis of their respective contributions, so as to approximate the division of profits that would have been agreed between independent enterprises.<sup>41</sup></p>
+      <p>The profit split method is appropriate when each party to the transaction makes unique and valuable contributions (e.g. unique and valuable intangible assets) to it,<sup>42</sup> or when they perform business operations with a high degree of integration (i.e. interdependence between the parties).<sup>43</sup> For example, this method could conceivably be applied to a transaction in which two associated enterprises jointly develop a pharmaceutical product, with each of them in this context using patents that they own.<sup>44</sup></p>
+      <p>The allocation of profits generated by the controlled transaction between the associated enterprises is carried out as part of the contribution analysis. The profits are divided between the enterprises involved in such a way as to approximate the split that independent enterprises would have made, either on the basis of comparable data where available, or using intragroup data (e.g. assets, costs).</p>
+
+      <h3 id="s4-3">4.3 Other Methods</h3>
+      <p>The methods recognised by the OECD Guidelines should be given priority, with other methods being used only when justified by the facts and circumstances of the individual case. In such circumstances, taxpayers are free to apply methods not described above to establish prices, on condition that those prices are in accordance with the arm's length principle.<sup>45</sup></p>
+
+      <div class="footnotes">
+        <p><sup>30</sup> OECD Guidelines, § 2.14.</p>
+        <p><sup>31</sup> OECD Guidelines, § 2.15.</p>
+        <p><sup>32</sup> OECD Guidelines, § 2.25 f.</p>
+        <p><sup>33</sup> OECD Guidelines, § 2.27.</p>
+        <p><sup>34</sup> OECD Guidelines, § 2.28.</p>
+        <p><sup>35</sup> OECD Guidelines, § 2.29 ff.</p>
+        <p><sup>36</sup> OECD Guidelines, § 2.45.</p>
+        <p><sup>37</sup> OECD Guidelines, § 2.45.</p>
+        <p><sup>38</sup> OECD Guidelines, § 2.62 f.</p>
+        <p><sup>39</sup> OECD Guidelines, § 2.64.</p>
+        <p><sup>40</sup> OECD Guidelines, § 2.68.</p>
+        <p><sup>41</sup> OECD Guidelines, § 2.114 f.</p>
+        <p><sup>42</sup> OECD Guidelines, § 2.119 and § 2.130 ff.</p>
+        <p><sup>43</sup> OECD Guidelines, § 2.120 and § 2.133 ff.</p>
+        <p><sup>44</sup> OECD Guidelines, Annex II to Chapter II, p. 467 f.</p>
+        <p><sup>45</sup> OECD Guidelines, § 2.9.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="s5-1">
+      <div class="section-number">Section 5</div>
+      <h2>Special Areas of Application</h2>
+
+      <h3>5.1 General Remarks</h3>
+      <p>In Chapters VI to X, the OECD Guidelines include special considerations relating to certain specific transactions. These considerations apply in addition to the general principles (i.e. the arm's length principle, the comparability analysis and the transfer pricing methods) mentioned above. The following sections provide a brief overview of these considerations in relation to the specific transactions most frequently encountered in practice.</p>
+
+      <h3 id="s5-2">5.2 Intangible Assets</h3>
+      <p>Chapter VI of the OECD Guidelines sets out specific principles for applying the arm's length principle to transactions involving intangible assets.<sup>46</sup></p>
+      <p>Intangible assets (such as patents, know-how, trade secrets and trademarks) refer to items which are not tangible or financial assets, which are capable of being owned or controlled for use in commercial activities, and whose use or transfer would be remunerated had it occurred in a transaction between independent parties in comparable circumstances.<sup>47</sup></p>
+      <p>The functional analysis that needs to be conducted for transactions related to intangible assets involves determining which parties perform functions, use assets and manage risks related to the development, enhancement, maintenance, protection and exploitation of the intangible assets in question.<sup>48</sup> In practice, these functions are called "DEMPE functions" (where DEMPE stands for development, enhancement, maintenance, protection, exploitation). Thus, the income related to intangible assets does not necessarily have to be assigned to their legal owner.<sup>49</sup> Each member of the group must receive appropriate remuneration for the DEMPE functions they perform.<sup>50</sup></p>
+      <p>In transactions involving the transfer of intangible assets in cases where comparable uncontrolled data is unavailable, it may also be possible to use valuation techniques to estimate the arm's length price for those intangible assets. In practice, among the most widely used methods are income-based valuation techniques, especially valuation techniques premised on the calculation of the discounted value of projected future cash flows derived from the exploitation of the intangible assets in question.<sup>51</sup></p>
+      <p>Chapter VI of the OECD Guidelines also contains a section on hard-to-value intangibles (HTVI).</p>
+
+      <h3 id="s5-3">5.3 Intragroup Services</h3>
+      <p>Chapter VII of the OECD Guidelines focuses on the special considerations applying to intragroup services. These include a broad range of administrative, technical, financial and commercial activities.<sup>52</sup></p>
+      <p>It is important to note that for the particular category of intragroup services that qualify as low value-adding intragroup services, the OECD has developed a simplified approach.<sup>53</sup></p>
+      <p>Low value-adding intragroup services are services which are of a supportive nature, are not part of the group's core business, do not require the use of unique and valuable intangible assets and do not involve the assumption or control of substantial or significant risk.<sup>54</sup> Several activities that may constitute such low value-adding services are listed as examples, including accounting, management of customer and supplier accounts, human resources and legal and tax services.<sup>55</sup> The OECD's simplified approach is to allow the application of a 5 % profit margin for all low value-adding services provided by a group entity, without there being a need to justify this with a comparative analysis.<sup>56</sup></p>
+
+      <h3 id="s5-4">5.4 Financial Transactions</h3>
+      <p>The latest version of the OECD Guidelines, published in 2022, incorporates fresh guidance on financial transactions, adopted by the OECD in 2020. They are covered in the new Chapter X of the OECD Guidelines, entitled "Transfer pricing aspects of financial transactions".</p>
+      <p>Chapter X features specific guidance on the application of the arm's length principle to intragroup financial transactions, especially treasury activities (including intragroup loans, cash pooling and hedging arrangements) and financial guarantees, as well as captive insurance companies.</p>
+      <p>In particular, the OECD Guidelines reaffirm the use of credit ratings in the context of intragroup financial transactions. The creditworthiness of a borrower is one of the main factors that an independent bank takes into account when determining an interest rate.<sup>57</sup> The credit rating, determined according to the criteria implemented by the main credit rating agencies (Moody's, Standard &amp; Poor's and Fitch), is a measure of a borrower's future creditworthiness. This measure is useful for identifying comparables and thus serves to determine arm's length remuneration.</p>
+      <p>Furthermore, the OECD reaffirms that any implicit support must be taken into account in assessing the creditworthiness of a company in intragroup relations. Implicit support is defined as the support which a company receives in meeting its financial obligations just because it belongs to a group. It has an impact on a company's creditworthiness, and therefore also on the credit rating that it receives. However, the benefit derived by a company from any implicit support should not be subject to remuneration.<sup>58</sup></p>
+
+      <div class="footnotes">
+        <p><sup>46</sup> OECD Guidelines, § 6.2.</p>
+        <p><sup>47</sup> OECD Guidelines, § 6.6.</p>
+        <p><sup>48</sup> OECD Guidelines, § 6.48.</p>
+        <p><sup>49</sup> OECD Guidelines, § 6.47.</p>
+        <p><sup>50</sup> OECD Guidelines, § 6.48.</p>
+        <p><sup>51</sup> OECD Guidelines, § 6.153.</p>
+        <p><sup>52</sup> OECD Guidelines, § 7.2.</p>
+        <p><sup>53</sup> OECD Guidelines, § 7.43 ff.</p>
+        <p><sup>54</sup> OECD Guidelines, § 7.45.</p>
+        <p><sup>55</sup> OECD Guidelines, § 7.47.</p>
+        <p><sup>56</sup> OECD Guidelines, § 7.61.</p>
+        <p><sup>57</sup> OECD Guidelines, § 10.62.</p>
+        <p><sup>58</sup> OECD Guidelines, § 10.77.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="s6">
+      <div class="section-number">Section 6</div>
+      <h2>Documentation</h2>
+      <p>As regards the transfer pricing documentation that taxpayers are required to supply to tax administrations, the OECD Guidelines envisage an approach based on a three-tiered structure:<sup>59</sup></p>
+      <div class="info-box">
+        <p>• the <strong>master file</strong>, which provides an overview of the group's business and its transfer pricing policy;</p>
+        <p style="margin-top:0.5rem;">• the <strong>local file</strong> of each group entity, which provides detailed information on the intragroup transactions to which it is a party;</p>
+        <p style="margin-top:0.5rem;">• the <strong>country-by-country report (CbCR)</strong>, which provides aggregate information relating to the global allocation of the income of the group in question and of the taxes which it pays in each country.</p>
+      </div>
+      <p>In Switzerland, the only obligation concerning transfer pricing documentation relates to the country-by-country report. Groups whose parent company is taxable in Switzerland and which generate turnover exceeding CHF 900 million are required to prepare a country-by-country report (art. 6 of the Federal Act of 16 June 2017 on the Automatic International Exchange of Country-by-Country Reports from Multinational Enterprises [CbCRAA]), which is then automatically submitted to the tax authorities of the countries involved in the CbCR. Otherwise, Swiss law does not include any specific requirements, e.g. to prepare master and local files. However, under the requirement to cooperate set out in art. 126 of the DFTA and art. 39 of the WTA, taxpayers must, upon request from the competent tax authority, provide the information and documents required for taxation purposes. This also applies to transfer pricing, in terms of demonstrating compliance with the arm's length principle.</p>
+      <div class="footnotes">
+        <p><sup>59</sup> OECD Guidelines, § 5.16 ff.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="s7-1">
+      <div class="section-number">Section 7</div>
+      <h2>Procedural Aspects</h2>
+
+      <h3>7.1 Competent Authorities</h3>
+      <p>In Switzerland, no single authority is responsible for all cases involving transfer pricing. Questions in this area are therefore dealt with by different authorities depending on the context in which they arise.</p>
+      <p>The cantonal tax authorities are responsible for transfer pricing in the context of the collection of profit tax (art. 2 of the DFTA and art. 2 para. 1 let. b of the DTHA). The FTA is responsible for collecting withholding tax (art. 1 para. 1 of the WTA). Each of these authorities exercise their competence not only during the taxation procedure but also before (rulings, see section 7.2.1) and after (audits).</p>
+      <p>The State Secretariat for International Finance (SIF) is the competent tax authority for financial, monetary and tax matters vis-à-vis foreign countries. In this capacity, it is solely responsible for negotiating advance pricing agreements (APAs, see section 7.2.2) and mutual agreements (see sections 7.3.2 and 7.4) with partner states.</p>
+
+      <h3 id="s7-2">7.2 Rulings and Advance Pricing Agreements</h3>
+
+      <h4>7.2.1 Rulings</h4>
+      <p>Generally speaking, a ruling is binding information from the tax authority on the tax treatment of a planned, specific and tax-related matter, and is issued in response to a query from a taxpayer. The Swiss tax authorities review applications for rulings on all aspects of taxation, including transfer pricing. Here, this involves confirming that the terms of a proposed transaction between associated enterprises comply with the arm's length principle and therefore have no impact on profit tax or withholding tax.</p>
+      <p>Rulings relating to profit tax fall within the competence of the cantons,<sup>60</sup> while those relating to withholding tax are handled by the FTA.<sup>61</sup> Given that the same transaction may have implications for both profit tax and withholding tax, it is recommended that an application for a ruling be filed both with the competent cantonal tax authority and with the FTA at the same time. Ruling applications must be accompanied by appropriate supporting documentation (e.g. a transfer pricing study) demonstrating compliance with the arm's length principle as set out in the OECD Guidelines.</p>
+
+      <h4>7.2.2 Bilateral or Multilateral Advance Pricing Agreements</h4>
+      <p>Bilateral or multilateral APAs also aim to determine, in advance of transactions between associated enterprises and on the request of such enterprises, the transfer pricing for those transactions.<sup>62</sup> However, unlike rulings (which are unilateral), they are jointly negotiated and granted by the competent authorities of several states, in order to secure the tax situation of associated enterprises in all the countries affected.</p>
+      <p>In Switzerland, only SIF negotiates APAs with partner states.<sup>63</sup></p>
+
+      <h3 id="s7-3">7.3 Primary and Corresponding Adjustments</h3>
+
+      <h4>7.3.1 Primary Adjustment</h4>
+      <p>A primary adjustment is defined by the OECD as the adjustment of a company's taxable profits made by a first tax authority as a result of the application of the arm's length principle to transactions with an associated enterprise abroad.<sup>64</sup> In Switzerland, primary adjustments are carried out only by cantonal tax authorities, given their competence for profit tax.</p>
+      <div class="callout">
+        <div class="callout-label">Example</div>
+        <p>Let us take the example of Company A in Switzerland, paying licensing royalties of CHF 50,000 to its brand-owning parent company abroad, Company B. Company A subtracts CHF 50,000 from its taxable profit as an expense justified by commercial use. The cantonal tax authority deems that the price of CHF 50,000 does not comply with the arm's length principle, and that the price which would be agreed between two independent enterprises would be CHF 30,000. The authority thus reintegrates CHF 20,000 into Company A's taxable profit. This constitutes a primary adjustment.</p>
+      </div>
+
+      <h4>7.3.2 Corresponding Adjustment and the Mutual Agreement Procedure</h4>
+      <p>According to the OECD, the corresponding adjustment is the adjustment to the tax liability of the associated enterprise in another state, made by the tax administration of that state, corresponding to a primary adjustment made by the tax administration in the first state. When a corresponding adjustment is made in Switzerland following a primary adjustment made by a foreign state, it also falls within the competence of the cantonal tax authorities, insofar as it falls under profit tax.</p>
+      <p>The corresponding adjustment helps to remedy the economic double taxation generated by the primary adjustment. Specifically, to take the same example as above, the primary adjustment made by the Swiss tax authority led to the reintegration of CHF 20,000 into the taxable profit of Company A. However, if nothing is done by the foreign tax authority, this CHF 20,000 continues to be considered taxable profit for Company B. The corresponding adjustment then involves, for the foreign tax authority, reducing the taxable profit of Company B by CHF 20,000, in order to bring it into line with the taxable profit of Company A.</p>
+      <p>In practice, the corresponding adjustment is generally carried out in the context of a mutual agreement procedure. The mutual agreement procedure is provided for by art. 9 para. 1 of the OECD Model in order to enable state parties to the DTA to resolve problems relating to the application of the DTA, in particular when they lead to double taxation. The mutual agreement procedure is initiated on the request of the taxpayer, but it is then conducted between the competent authorities of the states involved, without the taxpayer being a party to it.<sup>65</sup> Since 1 January 2022, the mutual agreement procedure has also been regulated in Swiss domestic law by art. 2 to 23 of the Federal Act of 18 June 2021 on the Implementation of International Tax Agreements (ITAIA).</p>
+      <p>When the competent authorities reach a mutual agreement and this is accepted by the taxpayer, the mutual agreement becomes binding on the tax authorities of the states involved (art. 15 para. 1 of the ITAIA). For example, if the mutual agreement envisages that the arm's length price for royalties paid by Company A to its parent company, Company B, is CHF 40,000, Switzerland will consider this CHF 40,000 a deductible expense for Company A, and the foreign state will deem this same amount to be a taxable profit for Company B.</p>
+
+      <h3 id="s7-4">7.4 Secondary Adjustment</h3>
+      <p>The OECD Guidelines define a secondary adjustment as an adjustment that involves imposing tax on what the OECD calls a secondary transaction.<sup>66</sup> In the Swiss tax system, this secondary transaction corresponds to the significant monetary benefit paid to the associated enterprise as a result of a transfer price that is excessive in the light of the arm's length principle. The withholding tax on this significant monetary benefit constitutes the secondary adjustment. In Switzerland, secondary adjustments are made exclusively by the FTA, due to its competence for withholding tax matters. The FTA may make a secondary adjustment regardless of whether the competent cantonal tax authority has made a primary adjustment with regard to the same intragroup transaction, and the reverse is also true.</p>
+      <p>In the example given in section 7.3.1, the secondary adjustment made by the FTA would correspond to the collection of withholding tax on CHF 20,000 as a significant monetary benefit paid by Company A to Company B.</p>
+      <p>The FTA and SIF have developed a practice relating to secondary adjustment, in the event that a mutual agreement procedure has been initiated following a primary adjustment made by the competent cantonal tax authority. The mutual agreement concluded by SIF with the foreign state may, in some circumstances, envisage that the secondary adjustment will be made (in other words, the FTA will levy withholding tax on the amount of the primary adjustment confirmed by the mutual agreement procedure) only in the absence of any repatriation (i.e. reimbursement) made by the foreign company for the Swiss company at the level of the confirmed adjustment.</p>
+
+      <div class="footnotes">
+        <p><sup>60</sup> FSCD 2C_807/2014 of 24 August 2015, recital 3.4.2; FSCD 2C_529/2014 of 24 August 2015, recital 3.3.2.</p>
+        <p><sup>61</sup> For more information about the requirements to be met regarding ruling applications, see Communication-011-DVS-2019-f of 29 April 2019, "Formal procedure for advance tax rulings regarding direct federal tax, withholding tax and stamp duty" (in French).</p>
+        <p><sup>62</sup> OECD Guidelines, § 4.134.</p>
+        <p><sup>63</sup> The application for the initiation of a mutual agreement procedure or an advance pricing agreements (APA) is made using the appropriate form.</p>
+        <p><sup>64</sup> OECD Guidelines, p. 24.</p>
+        <p><sup>65</sup> OECD Model, Commentary on Article 25 concerning the mutual agreement procedure, § 60.</p>
+        <p><sup>66</sup> OECD Guidelines, p. 25.</p>
+      </div>
+    </section>
+
+    <!-- ABBREVIATIONS -->
+    <section id="abbreviations">
+      <h2>Abbreviations</h2>
+      <table class="abbrev-table">
+        <tr><td>APA</td><td>Advance pricing agreements</td></tr>
+        <tr><td>CbCR</td><td>Country-by-country report</td></tr>
+        <tr><td>CbCRAA</td><td>Federal Act on the Automatic International Exchange of Country-by-Country Reports from Multinational Enterprises</td></tr>
+        <tr><td>DEMPE</td><td>Development, enhancement, maintenance, protection, exploitation</td></tr>
+        <tr><td>DFTA</td><td>Federal Act on Direct Federal Taxation</td></tr>
+        <tr><td>DTA</td><td>Double taxation agreement</td></tr>
+        <tr><td>DTHA</td><td>Federal Act on the Harmonisation of Direct Taxation at Cantonal and Communal Levels</td></tr>
+        <tr><td>FSC</td><td>Federal Supreme Court</td></tr>
+        <tr><td>FSCD</td><td>Federal Supreme Court decision published in the Classified Compilation of Federal Legislation</td></tr>
+        <tr><td>FTA</td><td>Federal Tax Administration</td></tr>
+        <tr><td>ITAIA</td><td>Federal Act on the Implementation of International Tax Agreements</td></tr>
+        <tr><td>OECD</td><td>Organisation for Economic Co-operation and Development</td></tr>
+        <tr><td>OECD Guidelines</td><td>OECD Transfer Pricing Guidelines for Multinational Enterprises and Tax Administrations</td></tr>
+        <tr><td>OECD Model</td><td>OECD Model Tax Convention on Income and on Capital</td></tr>
+        <tr><td>SIF</td><td>State Secretariat for International Finance</td></tr>
+        <tr><td>WTA</td><td>Federal Act on Withholding Tax</td></tr>
+      </table>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section id="disclaimer">
+      <h2>Disclaimer</h2>
+      <div class="disclaimer">
+        <h3>Requests for Information</h3>
+        <p>The Dossier Tax Information is a publication issued by the Swiss Tax Conference (SSK / CSI) and edited by the Federal Tax Administration (FTA). However, as these two institutions are not responsible for the taxation of individuals, any questions relating thereto should be addressed to the tax administration of the relevant canton (generally, the canton of residence).</p>
+
+        <h3>Exclusion of Liability</h3>
+        <p>The content of this publication is intended for general information purposes only. It does not constitute legal advice or assessment of a specific case, nor does it replace the professional services of specialists, particularly those of the cantonal tax authorities. Consequently, the FTA declines all liability if the reader takes, or omits to take, action in reliance on the accuracy and completeness of the content of this publication, thereby causing him or her prejudice.</p>
+
+        <h3>References and Links</h3>
+        <p>All references or links to Internet pages are provided for the convenience of the reader and their validity cannot be guaranteed.</p>
+
+        <h3>Copyright</h3>
+        <p>The information in this document is accessible to the public. Any reproduction in whole or in part of elements of its content in electronic or handwritten form for non-commercial use is authorized without the prior agreement by the FTA, provided that the source is acknowledged.</p>
+
+        <p style="margin-top:1.5rem; font-size:0.8rem; color:var(--muted);">© Tax documentation / FTA · Berne, 2024<br>
+        Eigenstrasse 65 · CH-3003 Bern · <a href="mailto:ist@estv.admin.ch" style="color:var(--accent);">ist@estv.admin.ch</a> · <a href="https://www.estv.admin.ch" style="color:var(--accent);">www.estv.admin.ch</a></p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('nav a[href="#' + e.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
 
